@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'AssetId'
       })
 
-      this.hasMany(models.Product_asset, {
+      this.hasOne(models.Product, {
         foreignKey: 'AssetId'
       })
     }

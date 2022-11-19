@@ -3,7 +3,6 @@ const { createCategory, updateCategoryById, getCategory, getCategoryById } = req
 const { createProduct, updateProductById, getProduct, getProductById } = require("../controllers/productController");
 const router = express.Router();
 const upload = require('../utils/multer');
-const multerProduct = require("../utils/multerProduct");
 
 
 
@@ -12,7 +11,7 @@ router.put("/category/:id", updateCategoryById)
 router.get("/category", getCategory)
 router.get("/category/:id", getCategoryById)
 
-router.post("/product", upload.single("image"), createProduct)
+router.post("/product", multerProduct.array("image", 5), createProduct)
 router.put("/product/:id", updateProductById)
 router.get("/product", getProduct)
 router.get("/product/:id", getProductById)

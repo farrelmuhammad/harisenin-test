@@ -12,7 +12,7 @@ router.put("/category/:id", updateCategoryById)
 router.get("/category", getCategory)
 router.get("/category/:id", getCategoryById)
 
-router.post("/product", upload.single("image"), createProduct)
+router.post("/product", multerProduct.array("image", 5), createProduct)
 router.put("/product/:id", updateProductById)
 router.get("/product", getProduct)
 router.get("/product/:id", getProductById)
